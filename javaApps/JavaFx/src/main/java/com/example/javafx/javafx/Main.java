@@ -1,6 +1,7 @@
 //in this we will learn about the click event that's what happen if this is clicked'
 package com.example.javafx.javafx;
 
+import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -18,7 +19,7 @@ import java.util.Collection;
 
 import static javafx.application.Application.launch;
 
-public class Main implements Mainm {
+public class Main extends Application {
     public static void main(String [] args){
 
         launch(args);
@@ -100,7 +101,7 @@ public class Main implements Mainm {
             public void handle(ActionEvent actionEvent) {
                 System.out.println("quit is clicked ");
                 Platform.exit(); //used to shut dowm the app
-                System.exit();
+//                System.exit();
             }
         });
 
