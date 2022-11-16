@@ -1,5 +1,5 @@
-//in this we will learn about the click event that's what happen if this is clicked'
 package com.example.javafx.javafx;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -7,16 +7,18 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import static javafx.application.Application.launch;
 
-public class MySecondClass extends Application {
+public class Controller extends Application {
     public static void main(String [] args){
 
         launch(args);
@@ -37,7 +39,7 @@ public class MySecondClass extends Application {
 //to get all the menu on the app layout
         rootNode.getChildren().addAll(menuBar);
 
-        Scene scene = new Scene(rootNode, 300, 275);
+        Scene scene = new Scene(rootNode);
 
         primaryStage.setScene(scene);
         ///used to set the title of the app
@@ -98,7 +100,7 @@ public class MySecondClass extends Application {
             public void handle(ActionEvent actionEvent) {
                 System.out.println("quit is clicked ");
                 Platform.exit(); //used to shut dowm the app
-                //System.exit();
+//                System.exit();
             }
         });
 
@@ -120,7 +122,10 @@ public class MySecondClass extends Application {
                 aboutApp();
             }
 
+            private void aboutApp() {
+                //write something
 
+            }
         });
 
 
@@ -131,36 +136,6 @@ public class MySecondClass extends Application {
 
 
         return MenuBar;
-
-    }
-
-    private void aboutApp() {
-        //write something
-        Alert alertDialog = new Alert(Alert.AlertType.INFORMATION);
-        alertDialog.setTitle("my first java app");
-        alertDialog.setHeaderText("learning javafx");
-        alertDialog.setContentText("im just a begginer in this");
-
-//        how to add custom button to this
-        ButtonType yesBtn  = new ButtonType("yes");
-
-        ButtonType noBtn  = new ButtonType("no");
-
-        alertDialog.getButtonTypes().setAll(yesBtn,noBtn);
-
-                alertDialog.showAndWait();
-
-        Optional<ButtonType> clickedBtn  = alertDialog.showAndWait();
-        if ( clickedBtn.isPresent() && clickedBtn.get()==yesBtn){
-            System.out.println("yes is clicked");
-        }
-        else {
-            System.out.println("no is clicked");
-        }
-//        if (clickedBtn.isPresent() && clickedBtn.get()==noBtn){
-//            System.out.println("no is clicked");
-//        }
-
 
     }
 
